@@ -1,4 +1,13 @@
 spring:
+  graphql:
+    cors:
+      allowed-origins:
+        - http://localhost:5173
+    graphiql:
+      enabled: true
+    schema:
+      printer:
+        enabled: true
   application:
     name: superhero-api
   jpa:

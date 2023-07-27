@@ -1,0 +1,22 @@
+# ---- ROOT Query
+type Query {
+    allSuperheros: [Superhero!]!
+    allSuperherosPaged(page: Int, size: Int): [Superhero]
+}
+# ---- ENUMS
+
+enum Publisher {
+    MARVEL
+}
+
+# ---- TYPES
+
+type Superhero {
+    id: ID!
+    apiId: String!
+    name: String!
+    description: String
+    thumbnailUrl: String
+    publisher: Publisher
+}
+
