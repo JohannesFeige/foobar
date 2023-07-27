@@ -1,0 +1,10 @@
+name: dev_stack_superhero-api
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: superhero-api
+      POSTGRES_PASSWORD: superhero-api
+      POSTGRES_DB: superhero-api

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: superhero-api
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${spring.application.name}
+    username: ${spring.application.name}
+    password: ${spring.application.name}
+  liquibase:
+    change-log: db/db.changelog-master.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="SK-002_BaseData.xml">
+
+    <changeSet id="anyIdGoesHere-1" author="dalkiewiczt">
+        <createTable tableName="SUPERHERO">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="API_ID" type="VARCHAR" />
+            <column name="NAME" type="VARCHAR"/>
+            <column name="DESCRIPTION" type="VARCHAR"/>
+            <column name="THUMBNAIL_URL" type="VARCHAR"/>
+            <column name="PUBLISHER" type="VARCHAR">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createSequence sequenceName="superhero_seq" startValue="1000" incrementBy="50"/>
+    </changeSet>
+    <changeSet id="anyIdGoesHere-2" author="dalkiewiczt">
+        <createTable tableName="FAN_INFO">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="NAME" type="VARCHAR">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="SUPERHERO_ID" type="BIGINT" />
+        </createTable>
+        <createSequence sequenceName="fan_info_seq" startValue="1000" incrementBy="50"/>
+        <addForeignKeyConstraint baseTableName="FAN_INFO" baseColumnNames="SUPERHERO_ID"
+                                 constraintName="FK_USER_INFO_SUPERHERO"
+                                 referencedTableName="SUPERHERO" referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

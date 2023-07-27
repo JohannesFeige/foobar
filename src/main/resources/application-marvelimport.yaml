@@ -1,0 +1,5 @@
+superheroapi:
+  marvelImporterConfig:
+    privateApiKey: '5a775b598cb3467a82dc3af9a97d22216a1666f9'
+    publicApiKey: 'c38e2184c3198b5a88e5cb02589388e6'
+    apiBaseUrl: 'https://gateway.marvel.com:443'
